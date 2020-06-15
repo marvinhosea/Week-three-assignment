@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import pro.marvinhosea.myprofile.controllers.ServiceController
 import pro.marvinhosea.myprofile.models.Service
 
 class MainActivity : AppCompatActivity() {
 
-    val services = Service("Carpentry", 700,"We make art from carpentry");
+    //Retrieve
+    val serviceController = ServiceController()
 
     internal lateinit var showNextServiceButton: Button
     internal lateinit var serviceNameView: TextView
@@ -32,14 +34,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * This method display the selected random business
+     * This method display the selected random business service
      */
     private fun displayServiceDetail() {
-        serviceNameView.text = getString(R.string.serviceName, services.name)
-        serviceDescriptionView.text = getString(R.string.serviceDescription, services.description)
-        servicePrice.text = getString(R.string.servicePrice, services.price)
+
+        val service = getRandomService()
+        serviceNameView.text = getString(R.string.serviceName, service.name)
+        serviceDescriptionView.text = getString(R.string.serviceDescription, service.description)
+        servicePrice.text = getString(R.string.servicePrice, service.price)
     }
 
-
+    private fun getRandomService(): Service {
+        return serviceController.getSingleService()
+    }
 
 }
