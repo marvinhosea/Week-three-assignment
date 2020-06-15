@@ -65,34 +65,34 @@
         </TableRow>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/serviceSectionTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Service Name" />
+            android:text="@string/serviceDetail" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/serviceName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Demo Service" />
+            android:text="@string/serviceName" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/serviceDescription"
             android:layout_width="match_parent"
             android:layout_height="96dp"
-            android:text="This is a service descripton" />
+            android:text="@string/serviceDescription" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/servicePrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price" />
+            android:text="@string/servicePrice" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/showNextServiceButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Another Service" />
+            android:text="@string/showNextServiceButtonText" />
 
     </LinearLayout>
 
