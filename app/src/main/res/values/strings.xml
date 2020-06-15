@@ -5,4 +5,9 @@
     <string name="emailAddress">bizcard@gmail.com</string>
     <string name="phoneNumber">+254704407119</string>
     <string name="my_image_description">logo</string>
+    <string name="showNextServiceButtonText">View Another Service</string>
+    <string name="serviceDetail">Service Detail</string>
+    <string name="serviceName">Name: %1$s</string>
+    <string name="serviceDescription">Detail: %1$s</string>
+    <string name="servicePrice">Price KES: %1$d</string>
 </resources>
