@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Service Card</string>
+    <string name="businessName">Biz Card</string>
+    <string name="location">Nairobi, Kenya</string>
+    <string name="emailAddress">bizcard@gmail.com</string>
+    <string name="phoneNumber">+254704407119</string>
+    <string name="my_image_description">logo</string>
+</resources>
