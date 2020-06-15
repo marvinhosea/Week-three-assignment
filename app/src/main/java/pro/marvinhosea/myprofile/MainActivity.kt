@@ -10,13 +10,13 @@ import pro.marvinhosea.myprofile.models.Service
 
 class MainActivity : AppCompatActivity() {
 
-    //Retrieve
     val serviceController = ServiceController()
 
     internal lateinit var showNextServiceButton: Button
     internal lateinit var serviceNameView: TextView
     internal lateinit var serviceDescriptionView: TextView
-    internal lateinit var servicePrice: TextView
+    internal lateinit var servicePriceView: TextView
+    internal lateinit var totalService: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,14 @@ class MainActivity : AppCompatActivity() {
         showNextServiceButton = findViewById(R.id.showNextServiceButton)
         serviceNameView = findViewById(R.id.serviceName)
         serviceDescriptionView = findViewById(R.id.serviceDescription)
-        servicePrice = findViewById(R.id.servicePrice)
+        servicePriceView = findViewById(R.id.servicePrice)
+        totalService = findViewById(R.id.numberOfService)
+
+
+        serviceNameView.text = getString(R.string.serviceName, "")
+        serviceDescriptionView.text = getString(R.string.serviceDescription, "")
+        servicePriceView.text = getString(R.string.servicePrice, 0)
+        totalService.text = getString(R.string.numberOfService, 0)
 
         //Listen to show next service button click
         showNextServiceButton.setOnClickListener { view ->
@@ -41,9 +48,12 @@ class MainActivity : AppCompatActivity() {
         val service = getRandomService()
         serviceNameView.text = getString(R.string.serviceName, service.name)
         serviceDescriptionView.text = getString(R.string.serviceDescription, service.description)
-        servicePrice.text = getString(R.string.servicePrice, service.price)
+        servicePriceView.text = getString(R.string.servicePrice, service.price)
     }
 
+    /**
+     * Select a random service from business services
+     */
     private fun getRandomService(): Service {
         return serviceController.getSingleService()
     }
