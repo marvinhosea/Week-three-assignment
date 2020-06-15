@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var serviceDescriptionView: TextView
     internal lateinit var servicePriceView: TextView
     internal lateinit var totalService: TextView
+    internal lateinit var service: Service
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +29,10 @@ class MainActivity : AppCompatActivity() {
         servicePriceView = findViewById(R.id.servicePrice)
         totalService = findViewById(R.id.numberOfService)
 
-
         serviceNameView.text = getString(R.string.serviceName, "")
         serviceDescriptionView.text = getString(R.string.serviceDescription, "")
         servicePriceView.text = getString(R.string.servicePrice, 0)
-        totalService.text = getString(R.string.numberOfService, 0)
+        totalService.text = getString(R.string.numberOfService, getAllService().count())
 
         //Listen to show next service button click
         showNextServiceButton.setOnClickListener { view ->
@@ -41,11 +41,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Get all business services
+     */
+    private fun getAllService(): MutableList<Service> {
+        return serviceController.getAllServices();
+    }
+
+    /**
      * This method display the selected random business service
      */
     private fun displayServiceDetail() {
 
-        val service = getRandomService()
+        service = getRandomService()
+
         serviceNameView.text = getString(R.string.serviceName, service.name)
         serviceDescriptionView.text = getString(R.string.serviceDescription, service.description)
         servicePriceView.text = getString(R.string.servicePrice, service.price)
@@ -57,5 +65,4 @@ class MainActivity : AppCompatActivity() {
     private fun getRandomService(): Service {
         return serviceController.getSingleService()
     }
-
 }
